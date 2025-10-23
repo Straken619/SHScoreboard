@@ -1,0 +1,162 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #f4f4f9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  margin: 0;
+  padding: 10px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 20px;
+}
+
+.player-name {
+  flex: 1;
+  padding: 8px;
+  font-size: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.score-display {
+  flex: 0.5;
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: bold;
+  background-color: #007bff;
+  color: white;
+  padding: 8px 10px;
+  border-radius: 8px;
+  margin: 0 5px;
+}
+
+.round-container {
+  width: 100%;
+  max-width: 600px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  margin-bottom: 15px;
+  padding: 10px;
+}
+
+.round-title {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.players-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.player-side {
+  flex: 1;
+  padding: 5px;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 10px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  flex: 1 1 30%;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button.toggled {
+  background-color: #28a745 !important;
+}
+
+.battle-tactics {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.battle-tactics label {
+  font-weight: bold;
+}
+
+/* Bigger checkboxes for mobile use */
+.battle-tactics input[type="checkbox"] {
+  transform: scale(1.5);
+  cursor: pointer;
+}
+
+.twist-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  margin-top: 8px;
+}
+
+.twist-controls span {
+  font-weight: bold;
+}
+
+.twist-controls button {
+  width: 35px;
+  height: 35px;
+  padding: 0;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.twist-score {
+  font-weight: bold;
+  font-size: 1.1rem;
+  min-width: 30px;
+  text-align: center;
+}
+
+.reset-container {
+  margin-top: 20px;
+}
+
+.reset-button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.reset-button:hover {
+  background-color: #b52b38;
+}
