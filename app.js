@@ -140,4 +140,10 @@ document.getElementById("resetAllBtn").addEventListener("click", () => {
   }
 
   document.querySelectorAll(".toggle-btn").forEach(b => b.classList.remove("toggled"));
-  document.querySelectorAll(".battle").fo
+  document.querySelectorAll(".battle").forEach(c => c.checked = false);
+
+  updateScore();
+});
+
+// Initialize
+updateScore();
