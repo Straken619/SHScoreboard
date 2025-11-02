@@ -4,14 +4,16 @@
 }
 
 body {
-  background: #f4f4f9;
+  background: #BFBDBA; 
+  background-repeat: no-repeat;
+  background-size: cover;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  /*justify-content: flex-start;*/
   min-height: 100vh;
   margin: 0;
-  padding: 10px;
+  padding: 1%;
 }
 
 .header {
@@ -20,44 +22,52 @@ body {
   align-items: center;
   width: 100%;
   max-width: 600px;
-  margin-bottom: 20px;
+  margin-bottom: 0;
 }
 
 .player-name {
   flex: 1;
-  padding: 8px;
+  padding: 1%;
   font-size: 1rem;
   border: 2px solid #ccc;
-  border-radius: 5px;
+  border-radius: 5%;
   text-align: center;
+  width: 40%;
 }
 
 .score-display {
+  background: linear-gradient(to right, #457B9D, #C44536);
   flex: 0.5;
   text-align: center;
   font-size: 1.4rem;
   font-weight: bold;
-  background-color: #007bff;
+  background-color: #dad7cd;
   color: white;
-  padding: 8px 10px;
-  border-radius: 8px;
-  margin: 0 5px;
+  padding: 5px 10px;
+  border-radius: 10%;
+  margin: 2px 0;
+  white-space: nowrap;
 }
 
 .round-container {
   width: 100%;
+  justify-content: center;
   max-width: 600px;
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  margin-bottom: 15px;
-  padding: 10px;
+  background-color: #dad7cd;
+  border-radius: 1%;
+  box-shadow: 0 2% 5% rgba(0,0,0,0.1);
+  margin-bottom: 15%;
+  margin-left: auto;
+  margin-right: auto;
+  margin: 3% 0px;  
+  padding-top: 0.5%;
+  padding-bottom: 0.5%;
 }
 
 .round-title {
   text-align: center;
   font-weight: bold;
-  margin-bottom: 8px;
+  margin-bottom: 2%;
 }
 
 .players-row {
@@ -67,22 +77,24 @@ body {
 
 .player-side {
   flex: 1;
-  padding: 5px;
+  padding: 0.5%;
+  /*background-color: #A8DADC;*/
+  margin: 0px 0.5%;
 }
 
 .controls {
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
-  gap: 5px;
+  gap: 0.5%;
 }
 
 button {
-  background-color: #007bff;
+  background-color: #5F6659;
   color: white;
   border: none;
-  border-radius: 5px;
-  padding: 8px 10px;
+  border-radius: 10px;
+  padding: 0.1% 0.1%;
   cursor: pointer;
   font-size: 0.9rem;
   flex: 1 1 30%;
@@ -90,18 +102,18 @@ button {
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #E09F3E;
 }
 
 button.toggled {
-  background-color: #28a745 !important;
+  background-color: #772E25 !important;
 }
 
 .battle-tactics {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 8px;
+  justify-content: left;
+  gap: 1%;
   margin-top: 8px;
 }
 
@@ -113,6 +125,7 @@ button.toggled {
 .battle-tactics input[type="checkbox"] {
   transform: scale(1.5);
   cursor: pointer;
+  accent-color: #5F6659;
 }
 
 .twist-controls {
@@ -128,7 +141,7 @@ button.toggled {
 }
 
 .twist-controls button {
-  width: 35px;
+  width: 35%;
   height: 35px;
   padding: 0;
   font-size: 1.2rem;
@@ -143,7 +156,8 @@ button.toggled {
 }
 
 .reset-container {
-  margin-top: 20px;
+  margin-top: 5px;
+  align: middle
 }
 
 .reset-button {
@@ -161,3 +175,19 @@ button.toggled {
   background-color: #b52b38;
 }
 
+.player-info {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;        /* centers block horizontally */
+  padding: 0;            /* remove side padding to align perfectly */
+  box-sizing: border-box;
+}
+
+.army-name {
+  flex: 1;
+  margin: 0 0.5%;
+  text-align: center;
+  width: 40%
+}

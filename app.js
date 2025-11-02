@@ -40,55 +40,55 @@ for (let round = 1; round <= 4; round++) {
   const roundDiv = document.createElement("div");
   roundDiv.classList.add("round-container");
   roundDiv.innerHTML = `
-    <div class="round-title">Round ${round}</div>
-    <div class="players-row">
+	<div class="round-title">Battle Round ${round}</div>
+	<div class="players-row">
 
-      <!-- Player 1 -->
-      <div class="player-side">
-        <div class="controls">
-          <button class="toggle-btn" data-player="1" data-round="${round}">Control 1</button>
-          <button class="toggle-btn" data-player="1" data-round="${round}">Control 2</button>
-          <button class="toggle-btn" data-player="1" data-round="${round}">Control More</button>
-        </div>
+	  <!-- Player 1 -->
+	  <div class="player-side">
+		<div class="controls">
+		  <button class="toggle-btn" data-player="1" data-round="${round}">Control 1+</button>
+		  <button class="toggle-btn" data-player="1" data-round="${round}">Control 2+</button>
+		  <button class="toggle-btn" data-player="1" data-round="${round}">Control More</button>
+		</div>
 
-        <div class="battle-tactics">
-          <label>Battle Tactics:</label>
-          <input type="checkbox" class="battle" data-player="1" data-round="${round}">
-          <input type="checkbox" class="battle" data-player="1" data-round="${round}">
-          <input type="checkbox" class="battle" data-player="1" data-round="${round}">
-        </div>
+		<div class="battle-tactics">
+		  <label>Battle Tactics:</label>
+		  <input type="checkbox" class="battle" data-player="1" data-round="${round}">
+		  <input type="checkbox" class="battle" data-player="1" data-round="${round}">
+		  <input type="checkbox" class="battle" data-player="1" data-round="${round}">
+		</div>
 
-        <div class="twist-controls">
-          <span>Twist:</span>
-          <button class="twist-btn" data-player="1" data-round="${round}" data-change="1">+</button>
-          <span class="twist-score" id="twistDisplay1_r${round}">0</span>
-          <button class="twist-btn" data-player="1" data-round="${round}" data-change="-1">−</button>
-        </div>
-      </div>
+		<div class="twist-controls">
+		  <span>Twist:</span>
+		  <button class="twist-btn" data-player="1" data-round="${round}" data-change="-1">-</button>
+		  <span class="twist-score" id="twistDisplay1_r${round}">0</span>
+		  <button class="twist-btn" data-player="1" data-round="${round}" data-change="1">+</button>
+		</div>
+	  </div>
 
-      <!-- Player 2 -->
-      <div class="player-side">
-        <div class="controls">
-          <button class="toggle-btn" data-player="2" data-round="${round}">Control 1</button>
-          <button class="toggle-btn" data-player="2" data-round="${round}">Control 2</button>
-          <button class="toggle-btn" data-player="2" data-round="${round}">Control More</button>
-        </div>
+	  <!-- Player 2 -->
+	  <div class="player-side">
+		<div class="controls">
+		  <button class="toggle-btn" data-player="2" data-round="${round}">Control 1+</button>
+		  <button class="toggle-btn" data-player="2" data-round="${round}">Control 2+</button>
+		  <button class="toggle-btn" data-player="2" data-round="${round}">Control More</button>
+		</div>
 
-        <div class="battle-tactics">
-          <label>Battle Tactics:</label>
-          <input type="checkbox" class="battle" data-player="2" data-round="${round}">
-          <input type="checkbox" class="battle" data-player="2" data-round="${round}">
-          <input type="checkbox" class="battle" data-player="2" data-round="${round}">
-        </div>
+		<div class="battle-tactics">
+		  <label>Battle Tactics:</label>
+		  <input type="checkbox" class="battle" data-player="2" data-round="${round}">
+		  <input type="checkbox" class="battle" data-player="2" data-round="${round}">
+		  <input type="checkbox" class="battle" data-player="2" data-round="${round}">
+		</div>
 
-        <div class="twist-controls">
-          <span>Twist:</span>
-          <button class="twist-btn" data-player="2" data-round="${round}" data-change="1">+</button>
-          <span class="twist-score" id="twistDisplay2_r${round}">0</span>
-          <button class="twist-btn" data-player="2" data-round="${round}" data-change="-1">−</button>
-        </div>
-      </div>
-    </div>
+		<div class="twist-controls">
+		  <span>Twist:</span>
+		  <button class="twist-btn" data-player="2" data-round="${round}" data-change="-1">-</button>
+		  <span class="twist-score" id="twistDisplay2_r${round}">0</span>
+		  <button class="twist-btn" data-player="2" data-round="${round}" data-change="1">+</button>
+		</div>
+	  </div>
+	</div>
   `;
   roundsContainer.appendChild(roundDiv);
 }
@@ -96,34 +96,34 @@ for (let round = 1; round <= 4; round++) {
 // Handle button clicks
 document.addEventListener("click", (e) => {
   if (e.target.classList.contains("toggle-btn")) {
-    const btn = e.target;
-    const player = parseInt(btn.dataset.player);
-    if (!btn.classList.contains("toggled")) {
-      btn.classList.add("toggled");
-      addScore(player, 1);
-    } else {
-      btn.classList.remove("toggled");
-      addScore(player, -1);
-    }
+	const btn = e.target;
+	const player = parseInt(btn.dataset.player);
+	if (!btn.classList.contains("toggled")) {
+	  btn.classList.add("toggled");
+	  addScore(player, 1);
+	} else {
+	  btn.classList.remove("toggled");
+	  addScore(player, -1);
+	}
   }
 
   // Twist buttons
   if (e.target.classList.contains("twist-btn")) {
-    const player = parseInt(e.target.dataset.player);
-    const round = parseInt(e.target.dataset.round);
-    const change = parseInt(e.target.dataset.change);
+	const player = parseInt(e.target.dataset.player);
+	const round = parseInt(e.target.dataset.round);
+	const change = parseInt(e.target.dataset.change);
 
-    twistScores[round][player] = Math.max(0, twistScores[round][player] + change);
-    updateTwistDisplay(round, player);
-    updateScore();
+	twistScores[round][player] = Math.max(0, twistScores[round][player] + change);
+	updateTwistDisplay(round, player);
+	updateScore();
   }
 });
 
 // Handle Battle Tactics checkboxes
 document.addEventListener("change", (e) => {
   if (e.target.classList.contains("battle")) {
-    const player = parseInt(e.target.dataset.player);
-    addScore(player, e.target.checked ? 1 : -1);
+	const player = parseInt(e.target.dataset.player);
+	addScore(player, e.target.checked ? 1 : -1);
   }
 });
 
@@ -133,10 +133,10 @@ document.getElementById("resetAllBtn").addEventListener("click", () => {
   player2Base = 0;
 
   for (let r = 1; r <= 4; r++) {
-    twistScores[r][1] = 0;
-    twistScores[r][2] = 0;
-    updateTwistDisplay(r, 1);
-    updateTwistDisplay(r, 2);
+	twistScores[r][1] = 0;
+	twistScores[r][2] = 0;
+	updateTwistDisplay(r, 1);
+	updateTwistDisplay(r, 2);
   }
 
   document.querySelectorAll(".toggle-btn").forEach(b => b.classList.remove("toggled"));
@@ -147,3 +147,35 @@ document.getElementById("resetAllBtn").addEventListener("click", () => {
 
 // Initialize
 updateScore();
+
+// Save Screenshot button
+document.getElementById("saveScreenshotBtn").addEventListener("click", () => {
+
+  htmlToImage.toPng(document.body, {
+	pixelRatio: 2, // higher resolution
+	cacheBust: true,
+	filter: (node) => !( // Exclude the Reset and Save buttons
+	  node.id === "resetAllBtn" || node.id === "saveScreenshotBtn"
+	),
+	style: {
+	  backgroundColor: window.getComputedStyle(document.body).backgroundColor
+	}
+  })
+  .then((dataUrl) => {
+	const today = new Date(); // Get today's date
+	const yyyy = today.getFullYear();
+	const mm = String(today.getMonth() + 1).padStart(2, "0"); // Months are 0-based
+	const dd = String(today.getDate()).padStart(2, "0");
+	const dateStr = `${yyyy}${mm}${dd}`;
+	
+	// Get player names
+	const player1 = (document.getElementById("player1Name").value || "Player1").replace(/\s+/g, "_");
+	const player2 = (document.getElementById("player2Name").value || "Player2").replace(/\s+/g, "_");
+	
+	const link = document.createElement("a");
+	link.download = `${dateStr}_${player1}_vs_${player2}.png`;
+	link.href = dataUrl;
+	link.click();
+  })
+  .catch((err) => console.error("Screenshot failed:", err));
+});
