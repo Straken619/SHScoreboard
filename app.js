@@ -53,9 +53,9 @@ for (let round = 1; round <= 4; round++) {
 
 		<div class="battle-tactics">
 		  <label>Battle Tactics:</label>
-		  <input type="checkbox" class="battle" data-player="1" data-round="${round}">
-		  <input type="checkbox" class="battle" data-player="1" data-round="${round}">
-		  <input type="checkbox" class="battle" data-player="1" data-round="${round}">
+		  <div class="checkbox battle" data-player="1" data-round="${round}"></div>
+		  <div class="checkbox battle" data-player="1" data-round="${round}"></div>
+		  <div class="checkbox battle" data-player="1" data-round="${round}"></div>
 		</div>
 
 		<div class="twist-controls">
@@ -76,9 +76,9 @@ for (let round = 1; round <= 4; round++) {
 
 		<div class="battle-tactics">
 		  <label>Battle Tactics:</label>
-		  <input type="checkbox" class="battle" data-player="2" data-round="${round}">
-		  <input type="checkbox" class="battle" data-player="2" data-round="${round}">
-		  <input type="checkbox" class="battle" data-player="2" data-round="${round}">
+		  <div class="checkbox battle" data-player="2" data-round="${round}"></div>
+		  <div class="checkbox battle" data-player="2" data-round="${round}"></div>
+		  <div class="checkbox battle" data-player="2" data-round="${round}"></div>
 		</div>
 
 		<div class="twist-controls">
@@ -119,13 +119,15 @@ document.addEventListener("click", (e) => {
   }
 });
 
-// Handle Battle Tactics checkboxes
-document.addEventListener("change", (e) => {
+// Handle Battle Tactics custom checkboxes
+document.addEventListener("click", (e) => {
   if (e.target.classList.contains("battle")) {
+	e.target.classList.toggle("checked");
 	const player = parseInt(e.target.dataset.player);
-	addScore(player, e.target.checked ? 1 : -1);
+	addScore(player, e.target.classList.contains("checked") ? 1 : -1);
   }
 });
+
 
 // Reset All button
 document.getElementById("resetAllBtn").addEventListener("click", () => {
@@ -140,7 +142,7 @@ document.getElementById("resetAllBtn").addEventListener("click", () => {
   }
 
   document.querySelectorAll(".toggle-btn").forEach(b => b.classList.remove("toggled"));
-  document.querySelectorAll(".battle").forEach(c => c.checked = false);
+  document.querySelectorAll(".battle").forEach(c => c.classList.remove("checked"));
 
   updateScore();
 });
