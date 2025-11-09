@@ -205,7 +205,7 @@ button.toggled {
 }
 
 .checkbox.checked {
-  background-color: #5F6659;
+  background-color: #772E25;
 }
 
 .checkbox.checked::after {
